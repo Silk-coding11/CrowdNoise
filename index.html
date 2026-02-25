@@ -1,0 +1,101 @@
+<!-- Bryson Peterson and Alexander Estrada-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Crowd Noise — Home</title>
+
+  <!-- Link to your stylesheet (replace filename if needed) -->
+  <link rel="stylesheet" href="DR-styles.css" />
+</head>
+<body>
+
+  <!-- SITE HEADER: logo, site title, main nav -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <!-- logo (left) -->
+      <div class="logo" aria-hidden="true">
+        <img src="images/CrowdNoiseLogo.png" alt="Crowd Noise logo" />
+      </div>
+
+      <!-- main page title -->
+      <div class="title-area">
+        <h1>Crowd Noise</h1>
+      </div>
+
+      <!-- top navigation (right) -->
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="StatsPage.html">Stats</a></li>
+          <li><a href="StandingsPage.html">Standings</a></li>
+          <li><a href="Rankings.html">Rankings</a></li>
+          <li><a href="Debate.html">Debate</a></li>
+          <li><a href="#">Search</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- accent bar (red) -->
+  <div class="accent-bar" role="presentation"></div>
+
+  <!-- MAIN CONTENT -->
+  <main id="main" class="container" role="main">
+    <!-- Hero / Introduction area -->
+    <section class="card hero" aria-labelledby="hero-heading">
+      <div class="hero-grid" style="display:grid; grid-template-columns: 1fr 320px; gap:18px; align-items:start;">
+        <!-- Intro text (left) -->
+        <div class="hero-intro">
+          <h2 id="hero-heading">Welcome to the Crowd</h2>
+          <p>
+            This is a basketball information / debate website about the NBA It features a stats page where you can find team stats as well as the league leaders in the big three
+            (points, rebounds, and assists). A standings page where you can see the live standings for each NBA
+            team based on division, conference, and league. A Rankings page where you can find our power rankings
+            for teams, our rankings of individual players, and the movement trends describing the rise and fall
+            in specific teams. Finally, a debate page where you as the user can post your own opinions on
+            basketball topics to start a conversation or view other people's opinions which you can reply to in
+            order to start debates. Our goal with this site is to provide information and form a community in the
+            NBA world where users can come to express themselves with other like-minded people.
+          </p>
+        </div>
+
+        <!-- Sidebar (right) with images -->
+        <aside class="hero-aside" aria-label="Complementary images">
+          <div class="image-card" style="margin-bottom:16px;">
+            <img src="images/SwishImage.jpg" alt="Basketball action" class="centered-logo-large" />
+          </div>
+
+          <div class="image-card">
+            <img src="images/NBAlogo.png" alt="NBA" style="display:block; max-width:150px; width:100%; height:auto;" />
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Footer band and footer nav appear visually lower — the styles.css footer will style this area -->
+  </main>
+
+  <!-- FOOTER (matches Rankings footer style) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Stats.html">Stats</a></li>
+          <li><a href="Standings.html">Standings</a></li>
+          <li><a href="Rankings.html">Rankings</a></li>
+          <li><a href="Debate.html">Debate</a></li>
+          <li><a href="#">Search</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-logo" aria-hidden="true">
+        <img src="images/CrowdNoiseLogo.png" alt="Crowd Noise" />
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

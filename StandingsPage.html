@@ -1,0 +1,175 @@
+<!-- Bryson Peterson-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Standings - Crowd Noise</title>
+
+  <!-- Link to your existing stylesheet -->
+  <link rel="stylesheet" href="DR-styles.css">
+</head>
+<body>
+
+  <!-- SITE HEADER (matches other pages) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <!-- adjust filename if your logo is named differently -->
+        <img src="images/CrowdNoiseLogo.png" alt="Crowd Noise Logo">
+      </div>
+
+      <div class="title-area">
+        <h1>Standings Page</h1>
+      </div>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="StatsPage.html">Stats</a></li>
+          <li><a href="StandingsPage.html" class="active">Standings</a></li>
+          <li><a href="Rankings.html">Rankings</a></li>
+          <li><a href="Debate.html">Debate</a></li>
+          <li><a href="#">Search</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Accent bar (same visual rule used on other pages) -->
+  <div class="accent-bar"></div>
+
+  <!-- Page content wrapped with the same container/card layout -->
+  <main>
+    <div class="container">
+
+      <!-- Standings panel -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="section-top">
+            <h2>Eastern Conference</h2>
+
+            <div class="conference-controls">
+              <label for="conference-select" class="sr-only">Choose conference</label>
+              <select id="conference-select" class="conference-dropdown">
+                <option value="east" selected>Eastern Conference</option>
+                <option value="west">Western Conference</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Two-column responsive layout for the standings + record columns -->
+          <div class="standings-grid">
+            <!-- Left: rank & team list -->
+            <div class="standings-column">
+              <h3>Rank</h3>
+              <ol class="team-list">
+                <li>Detroit Pistons</li>
+                <li>Boston Celtics</li>
+                <li>New York Knicks</li>
+                <li>Cleveland Cavaliers</li>
+                <li>Toronto Raptors</li>
+                <li>Philadelphia 76ers</li>
+                <li>Orlando Magic</li>
+                <li>Miami Heat</li>
+                <li>Charlotte Hornets</li>
+                <li>Atlanta Hawks</li>
+              </ol>
+            </div>
+
+            <!-- Right: Records (aligned with left) -->
+            <div class="standings-column">
+              <h3>Record</h3>
+              <ol class="record-list">
+                <li>40 - 13</li>
+                <li>35 - 19</li>
+                <li>35 - 20</li>
+                <li>34 - 21</li>
+                <li>32 - 23</li>
+                <li>30 - 24</li>
+                <li>28 - 25</li>
+                <li>29 - 27</li>
+                <li>26 - 29</li>
+                <li>26 - 30</li>
+              </ol>
+            </div>
+          </div> <!-- /.standings-grid -->
+
+          <!-- Division subsection (keeps layout consistent) -->
+          <div class="division-row">
+            <h4>Division</h4>
+            <ul class="division-stats">
+              <li>8 - 3</li>
+              <li>7 - 5</li>
+              <li>10 - 3</li>
+            </ul>
+          </div>
+
+        </div> <!-- /.card-inner -->
+      </div> <!-- /.card -->
+
+      <!-- Add a second card containing a cleaner table layout for detailed columns (PPG, OPP, DIFF) -->
+      <div class="card">
+        <div class="card-inner">
+          <h3>Eastern Conference Detailed Standings</h3>
+
+          <div class="table-wrap">
+            <table class="standings-table" cellspacing="0" cellpadding="6">
+              <thead>
+                <tr>
+                  <th>Team</th>
+                  <th>W</th>
+                  <th>L</th>
+                  <th>PCT</th>
+                  <th>PPG</th>
+                  <th>OPP PPG</th>
+                  <th>DIFF</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Detroit Pistons</td><td>40</td><td>13</td><td>.755</td><td>117.2</td><td>109.3</td><td>+7.9</td>
+                </tr>
+                <tr>
+                  <td>Boston Celtics</td><td>35</td><td>19</td><td>.648</td><td>115.3</td><td>108.4</td><td>+6.9</td>
+                </tr>
+                <tr>
+                  <td>New York Knicks</td><td>35</td><td>20</td><td>.636</td><td>118.0</td><td>111.9</td><td>+6.1</td>
+                </tr>
+                <!-- keep adding rows as needed -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> <!-- /.card -->
+
+      <!-- Optionally show Western conference in separate card for consistency -->
+      <div class="card">
+        <div class="card-inner">
+          <h3>Western Conference</h3>
+          <p>(Put the western conference standings here — same structure as Eastern)</p>
+        </div>
+      </div>
+
+    </div> <!-- /.container -->
+  </main>
+
+  <!-- SITE FOOTER (matches other pages) -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-nav">
+        <ul>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-logo">
+        <img src="images/CrowdNoiseLogo.png" alt="logo">
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!-- Alexander Estrada-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Debate — Crowd Noise</title>
+  <link rel="stylesheet" href="DR-styles.css" />
+</head>
+<body>
+  <!-- SITE HEADER: logo, page title, main navigation -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo" aria-hidden="true">
+        <!-- Replace with your real logo -->
+        <img src="images/CrowdNoiseLogo.png" alt="Crowd Noise logo" />
+      </div>
+
+      <div class="title-area">
+        <h1>Debate</h1>
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="StatsPage.html">Stats</a></li>
+          <li><a href="StandingsPage.html">Standings</a></li>
+          <li><a href="Rankings.html">Rankings</a></li>
+          <li><a href="Debate.html" class="active">Debate</a></li>
+          <li><a href="#">Search</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Prominent accent bar -->
+  <div class="accent-bar"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="container" id="main">
+    <!-- Make a Post: a blank form for topic, stance, defense -->
+    <section class="card make-post" aria-labelledby="make-post-heading">
+      <header>
+        <h2 id="make-post-heading">Make a Post</h2>
+      </header>
+
+      <!--
+        Post form: inputs are labeled for accessibility.
+        The form currently has no server action. You can add JS to handle submission client-side
+        (e.g., append a post to the .community-list) or post to your backend endpoint.
+      -->
+      <form id="postForm" class="post-form" action="#" method="post" novalidate>
+        <div class="form-row">
+          <label for="topic">Topic</label>
+          <input id="topic" name="topic" type="text" placeholder="e.g. Who is the G.O.A.T.?" required />
+        </div>
+
+        <div class="form-row">
+          <label for="stance">Stance</label>
+          <input id="stance" name="stance" type="text" placeholder="e.g. Michael Jordan" required />
+        </div>
+
+        <div class="form-row">
+          <label for="defense">Defend yourself</label>
+          <textarea id="defense" name="defense" rows="6" placeholder="Write your defense..." required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-post">Post</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- thin accent divider -->
+    <div class="accent-bar thin"></div>
+
+    <!-- Community Posts section - initially empty but space reserved -->
+    <section class="card community" aria-labelledby="community-heading">
+      <header>
+        <h2 id="community-heading">Community Posts</h2>
+      </header>
+
+      <!-- Placeholder explanation when there are no posts -->
+      <div class="no-posts" id="noPostsMessage">
+        <p>No posts yet. Be the first to share a topic — posts you create will appear here.</p>
+      </div>
+
+      <!-- Container where posts will appear when created -->
+      <div class="community-list" id="communityList" aria-live="polite" aria-atomic="true">
+        <!-- Individual posts (cards) will be inserted here -->
+      </div>
+
+      <div class="load-more">
+        <button class="btn-link" aria-hidden="true">Click to load more posts</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Stats</a></li>
+          <li><a href="#">Standings</a></li>
+          <li><a href="#">Rankings</a></li>
+          <li><a href="#">Debate</a></li>
+          <li><a href="#">Search</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-logo" aria-hidden="true">
+        <img src="images/CrowdNoiseLogo.png" alt="Crowd Noise" />
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
