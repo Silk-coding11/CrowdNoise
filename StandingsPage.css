@@ -1,0 +1,297 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #e6e6e6;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #ffffff;
+    gap: 12px;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+    display: block;
+    flex-shrink: 0;
+}
+
+.header h1 {
+    flex: 1;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* NAVIGATION */
+.nav-bar {
+    background-color: #c8102e;
+    position: relative;
+}
+
+/* Hamburger — hidden on desktop */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    min-height: 48px;
+    min-width: 48px;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 16px;
+}
+
+.nav-menu li {
+    margin-left: 24px;
+}
+
+.nav-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 0;
+    font-size: 14px;
+}
+
+/* CONFERENCE SECTION */
+.conference-section {
+    margin-top: 20px;
+}
+
+.conference-header {
+    background-color: #c8102e;
+    color: white;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.conference-header h2 {
+    font-size: 18px;
+}
+
+.conference-dropdown {
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    border: none;
+    min-height: 36px;
+    cursor: pointer;
+}
+
+/* STANDINGS */
+.standings-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    background-color: #c8102e;
+    padding: 20px 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.column {
+    background-color: white;
+    flex: 1;
+    min-width: 120px;
+    max-width: 300px;
+}
+
+.column-header {
+    background-color: #bfbfbf;
+    padding: 12px 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px;
+}
+
+.row {
+    padding: 11px 10px;
+    font-size: 13px;
+}
+
+.row.alt {
+    background-color: #d9d9d9;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #c8102e;
+    color: white;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.page-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-controls button {
+    background-color: white;
+    border: none;
+    padding: 8px 14px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    min-height: 44px;
+    min-width: 44px;
+    border-radius: 3px;
+}
+
+.page-controls span {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (≤ 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+
+    /* Header */
+    .header h1 {
+        font-size: 17px;
+        text-align: left;
+    }
+
+    .logo img {
+        width: 44px;
+    }
+
+    /* Show hamburger */
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* Hide menu by default, show when open */
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        padding: 0;
+        background-color: #a50d24;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-menu li {
+        margin: 0;
+        border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .nav-menu a {
+        padding: 14px 16px;
+        font-size: 15px;
+    }
+
+    /* Conference header */
+    .conference-header h2 {
+        font-size: 15px;
+    }
+
+    /* Standings: scroll horizontally on very small screens */
+    .standings-container {
+        gap: 8px;
+        padding: 12px 10px;
+        justify-content: flex-start;
+    }
+
+    .column {
+        min-width: 100px;
+    }
+
+    .column-header {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    .row {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    /* Footer: stack */
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET (601px – 900px)
+   ============================================================ */
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .nav-menu li {
+        margin-left: 16px;
+    }
+
+    .nav-menu a {
+        font-size: 13px;
+    }
+
+    .standings-container {
+        gap: 12px;
+        padding: 16px 12px;
+    }
+
+    .column {
+        min-width: 140px;
+    }
+}

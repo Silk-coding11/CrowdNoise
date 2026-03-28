@@ -1,182 +1,261 @@
-<!-- Bryson Peterson-->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Stats - Crowd Noise</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats Page</title>
+    <style>
+        /* RESET */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <!-- Link to your existing stylesheet -->
-  <link rel="stylesheet" href="DR-styles.css">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        .top-header {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background-color: #ffffff;
+            gap: 12px;
+        }
+        .top-header h1 { font-size: 22px; font-weight: bold; }
+        .logo img { width: 50px; height: auto; display: block; }
+
+        /* NAVIGATION */
+        .main-nav { background-color: #c8102e; position: relative; }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            min-height: 48px;
+            min-width: 48px;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            padding: 0 16px;
+        }
+        .nav-menu li { margin-left: 20px; }
+        .nav-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 0;
+            font-size: 14px;
+        }
+
+        /* SECTION LABEL */
+        .section-label {
+            background-color: #c8102e;
+            color: white;
+            padding: 10px 16px;
+            font-weight: bold;
+            width: fit-content;
+            margin: 16px 16px 0;
+            font-size: 14px;
+        }
+
+        /* STATS LEADER */
+        .stats-leader {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #e6e6e6;
+            margin: 16px;
+            padding: 16px;
+            align-items: center;
+            gap: 16px;
+        }
+        .leader-logo img { width: 100px; height: auto; display: block; }
+        .leader-info h2 { margin-bottom: 8px; font-size: 18px; }
+        .leader-info p { margin-bottom: 4px; font-size: 14px; }
+
+        /* CONFERENCES */
+        .conference { margin: 16px; }
+        .conference h3 {
+            background-color: #c8102e;
+            color: white;
+            padding: 10px 12px;
+            font-size: 16px;
+        }
+
+        /* TABLE */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        table {
+            width: 100%;
+            min-width: 480px;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        thead { background-color: #ddd; }
+        th, td {
+            padding: 8px 10px;
+            text-align: left;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+        th { font-weight: bold; }
+        tbody tr:nth-child(even) { background-color: #f5f5f5; }
+        .positive { color: green; font-weight: bold; }
+        .negative { color: red; font-weight: bold; }
+
+        /* FOOTER */
+        footer {
+            background-color: #c8102e;
+            color: white;
+            padding: 14px 16px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-links { display: flex; flex-wrap: wrap; gap: 8px; }
+        .footer-links a { color: white; text-decoration: none; font-size: 13px; }
+        .footer-page { font-weight: bold; font-size: 14px; }
+
+        /* ── MOBILE ── */
+        @media (max-width: 600px) {
+            .top-header h1 { font-size: 18px; }
+            .logo img { width: 40px; }
+
+            .nav-toggle { display: flex; }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                padding: 0;
+                background-color: #a50d24;
+            }
+            .nav-menu.open { display: flex; }
+            .nav-menu li { margin: 0; border-top: 1px solid rgba(255,255,255,0.15); }
+            .nav-menu a { padding: 14px 16px; font-size: 15px; }
+
+            .stats-leader { flex-direction: column; align-items: flex-start; margin: 12px; padding: 12px; }
+            .leader-logo img { width: 80px; }
+            .leader-info h2 { font-size: 16px; }
+            .conference { margin: 12px; }
+            .conference h3 { font-size: 15px; }
+            th, td { padding: 7px 8px; font-size: 12px; }
+            footer { flex-direction: column; align-items: flex-start; }
+        }
+
+        /* ── TABLET ── */
+        @media (min-width: 601px) and (max-width: 900px) {
+            .top-header h1 { font-size: 20px; }
+            .nav-menu li { margin-left: 14px; }
+            .nav-menu a { font-size: 13px; }
+            .leader-logo img { width: 90px; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- SITE HEADER (consistent with other pages) -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo">
-        <img src="images/CrowdNoiseLogo.png" alt="Crowd Noise Logo">
-      </div>
-
-      <div class="title-area">
+    <header class="top-header">
+        <div class="logo"><img src="CrowdNoiseLogo.png" alt="Logo"></div>
         <h1>Stats Page</h1>
-      </div>
+    </header>
 
-      <nav class="main-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="StatsPage.html" class="active">Stats</a></li>
-          <li><a href="StandingsPage.html">Standings</a></li>
-          <li><a href="Rankings.html">Rankings</a></li>
-          <li><a href="Debate.html">Debate</a></li>
-          <li><a href="#">Search</a></li>
+    <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Stats</a></li>
+            <li><a href="#">Standings</a></li>
+            <li><a href="#">Rankings</a></li>
+            <li><a href="#">Debate</a></li>
+            <li><a href="#">Search</a></li>
         </ul>
-      </nav>
-    </div>
-  </header>
+    </nav>
 
-  <div class="accent-bar"></div>
+    <div class="section-label">Section 23</div>
 
-  <!-- MAIN CONTENT -->
-  <main>
-    <div class="container">
-
-      <!-- Leader Card: team image + league stats leader -->
-      <div class="card">
-        <div class="card-inner stats-leader-card">
-          <div class="leader-left">
-            <div class="leader-logo">
-              <!-- change filename to your team logo image -->
-              <img src="images/Pistons.jpg" alt="Detroit Pistons Logo">
-            </div>
-          </div>
-
-          <div class="leader-right">
+    <section class="stats-leader">
+        <div class="leader-logo"><img src="pistons.jpg" alt="Detroit Pistons Logo"></div>
+        <div class="leader-info">
             <h2>League Stats Leader</h2>
             <p><strong>Team Stats Leader:</strong> Detroit Pistons</p>
-            <p><strong>Points:</strong> 117.2 ppg</p>
-            <p><strong>Rebounds:</strong> 45.6 rpg</p>
-            <p><strong>Assists:</strong> 26.6 apg</p>
-            <p><strong>Last 10:</strong> 8-2</p>
-          </div>
+            <p>Points: 117.2 ppg</p>
+            <p>Rebounds: 45.6 rpg</p>
+            <p>Assists: 26.6 apg</p>
+            <p>Last 10: 8-2</p>
         </div>
-      </div>
+    </section>
 
-      <!-- Conference summary card -->
-      <div class="card">
-        <div class="card-inner">
-          <h3>Eastern Conference</h3>
-
-          <!-- compact standings row (three columns) -->
-          <div class="conference-summary">
-            <div class="summary-column">
-              <h4>Team</h4>
-              <ul class="plain-list">
-                <li>Detroit Pistons</li>
-                <li>Boston Celtics</li>
-                <li>New York Knicks</li>
-                <li>Cleveland Cavaliers</li>
-                <li>Toronto Raptors</li>
-              </ul>
-            </div>
-
-            <div class="summary-column">
-              <h4>W - L</h4>
-              <ul class="plain-list">
-                <li>40 - 13</li>
-                <li>35 - 19</li>
-                <li>35 - 20</li>
-                <li>34 - 21</li>
-                <li>32 - 23</li>
-              </ul>
-            </div>
-
-            <div class="summary-column">
-              <h4>PPG / DIFF</h4>
-              <ul class="plain-list">
-                <li>117.2 / +7.9</li>
-                <li>115.3 / +6.9</li>
-                <li>118.0 / +6.1</li>
-                <li>116.1 / +5.0</li>
-                <li>113.5 / +2.7</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Detailed conference tables (keeps same card look as other pages) -->
-      <div class="card">
-        <div class="card-inner">
-          <h3>Eastern Conference — Detailed</h3>
-          <div class="table-wrap">
-            <table class="standings-table" cellspacing="0" cellpadding="6">
-              <thead>
-                <tr>
-                  <th>Team</th><th>W</th><th>L</th><th>PCT</th><th>PPG</th><th>OPP PPG</th><th>DIFF</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Detroit Pistons</td><td>40</td><td>13</td><td>.755</td><td>117.2</td><td>109.3</td><td>+7.9</td>
-                </tr>
-                <tr>
-                  <td>Boston Celtics</td><td>35</td><td>19</td><td>.648</td><td>115.3</td><td>108.4</td><td>+6.9</td>
-                </tr>
-                <tr>
-                  <td>New York Knicks</td><td>35</td><td>20</td><td>.636</td><td>118.0</td><td>111.9</td><td>+6.1</td>
-                </tr>
-                <!-- add more rows for the full conference -->
-              </tbody>
+    <section class="conference">
+        <h3>Eastern Conference ↓</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Team</th><th>W</th><th>L</th><th>PCT</th><th>PPG</th><th>OPP PPG</th><th>DIFF</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Detroit Pistons</td><td>40</td><td>13</td><td>.755</td><td>117.2</td><td>109.3</td><td class="positive">+7.9</td></tr>
+                    <tr><td>Boston Celtics</td><td>35</td><td>19</td><td>.648</td><td>115.3</td><td>108.4</td><td class="positive">+6.9</td></tr>
+                    <tr><td>New York Knicks</td><td>35</td><td>20</td><td>.636</td><td>118.0</td><td>111.9</td><td class="positive">+6.1</td></tr>
+                </tbody>
             </table>
-          </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Western conference card -->
-      <div class="card">
-        <div class="card-inner">
-          <h3>Western Conference</h3>
-          <div class="table-wrap">
-            <table class="standings-table" cellspacing="0" cellpadding="6">
-              <thead>
-                <tr>
-                  <th>Team</th><th>W</th><th>L</th><th>PCT</th><th>PPG</th><th>OPP PPG</th><th>DIFF</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Oklahoma City Thunder</td><td>42</td><td>11</td><td>.792</td><td>119.0</td><td>106.5</td><td>+12.5</td>
-                </tr>
-                <tr>
-                  <td>Denver Nuggets</td><td>38</td><td>16</td><td>.704</td><td>116.3</td><td>109.0</td><td>+7.3</td>
-                </tr>
-                <!-- add more rows as needed -->
-              </tbody>
+    <section class="conference">
+        <h3>Western Conference ↓</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Team</th><th>W</th><th>L</th><th>PCT</th><th>PPG</th><th>OPP PPG</th><th>DIFF</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Oklahoma City Thunder</td><td>42</td><td>14</td><td>.750</td><td>119.7</td><td>108.0</td><td class="positive">+11.7</td></tr>
+                    <tr><td>Denver Nuggets</td><td>35</td><td>20</td><td>.636</td><td>120.4</td><td>116.3</td><td class="positive">+4.1</td></tr>
+                    <tr><td>Los Angeles Lakers</td><td>32</td><td>21</td><td>.611</td><td>116.0</td><td>110.5</td><td class="positive">+5.5</td></tr>
+                </tbody>
             </table>
-          </div>
         </div>
-      </div>
+    </section>
 
-    </div> <!-- /.container -->
-  </main>
+    <footer>
+        <div class="footer-links">
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="footer-page">← Page 3 →</div>
+    </footer>
 
-  <!-- SITE FOOTER (consistent with other pages) -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-nav">
-        <ul>
-          <li><a href="#">Terms of Use</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-logo">
-        <img src="images/CrowdNoiseLogo.png" alt="logo">
-      </div>
-    </div>
-  </footer>
-
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const menu   = document.querySelector('.nav-menu');
+        toggle.addEventListener('click', function () {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            menu.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
