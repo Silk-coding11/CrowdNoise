@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats Page</title>
+    <link rel="stylesheet" href="SS.css">
+</head>
+<body>
+
+    <he
+    ader class="top-header">
+        <div class="logo"><img src="CrowdNoiseLogo.jpg" alt="Logo"></div>
+        <h1>Stats Page</h1>
+    </header>
+
+    <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Stats</a></li>
+            <li><a href="#">Standings</a></li>
+            <li><a href="#">Rankings</a></li>
+            <li><a href="#">Debate</a></li>
+            <li><a href="#">Search</a></li>
+        </ul>
+    </nav>
+
+    <div class="section-label">Section 23</div>
+
+    <section class="stats-leader">
+        <div class="leader-logo"><img src="pistons.jpg" alt="Detroit Pistons Logo"></div>
+        <div class="leader-info">
+            <h2>League Stats Leader</h2>
+            <p><strong>Team Stats Leader:</strong> Detroit Pistons</p>
+            <p>Points: 117.2 ppg</p>
+            <p>Rebounds: 45.6 rpg</p>
+            <p>Assists: 26.6 apg</p>
+            <p>Last 10: 8-2</p>
+        </div>
+    </section>
+
+    <section class="conference">
+        <h3>Eastern Conference ↓</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Team</th><th>W</th><th>L</th><th>PCT</th><th>PPG</th><th>OPP PPG</th><th>DIFF</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Detroit Pistons</td><td>40</td><td>13</td><td>.755</td><td>117.2</td><td>109.3</td><td class="positive">+7.9</td></tr>
+                    <tr><td>Boston Celtics</td><td>35</td><td>19</td><td>.648</td><td>115.3</td><td>108.4</td><td class="positive">+6.9</td></tr>
+                    <tr><td>New York Knicks</td><td>35</td><td>20</td><td>.636</td><td>118.0</td><td>111.9</td><td class="positive">+6.1</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="conference">
+        <h3>Western Conference ↓</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Team</th><th>W</th><th>L</th><th>PCT</th><th>PPG</th><th>OPP PPG</th><th>DIFF</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Oklahoma City Thunder</td><td>42</td><td>14</td><td>.750</td><td>119.7</td><td>108.0</td><td class="positive">+11.7</td></tr>
+                    <tr><td>Denver Nuggets</td><td>35</td><td>20</td><td>.636</td><td>120.4</td><td>116.3</td><td class="positive">+4.1</td></tr>
+                    <tr><td>Los Angeles Lakers</td><td>32</td><td>21</td><td>.611</td><td>116.0</td><td>110.5</td><td class="positive">+5.5</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="footer-page">← Page 3 →</div>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const menu   = document.querySelector('.nav-menu');
+        toggle.addEventListener('click', function () {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            menu.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
