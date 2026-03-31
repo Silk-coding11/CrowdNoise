@@ -1,76 +1,107 @@
 /* ============================================================
    styles.css — shared stylesheet for StatsPage & StandingsPage
+   Theme aligned with site-wide DR-styles.css
    ============================================================ */
 
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* ── SHARED BODY ── */
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #333;
+/* ---------- Reset & base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+    height: 100%;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #222;
+    background: #fff;
     overflow-x: hidden;
 }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { height: auto; display: block; max-width: 100%; }
 
-/* StatsPage uses a light grey background */
-body:has(.top-header)    { background-color: #f2f2f2; }
-/* StandingsPage uses a slightly darker grey */
-body:has(.header)        { background-color: #e6e6e6; }
-
-/* ── SHARED IMAGES ── */
-img {
-    height: auto;
-    display: block;
-    max-width: 100%;
-}
+/* ---------- Accent bar (thick red stripe) ---------- */
+.accent-bar { background: #a40f0f; height: 14px; }
 
 /* ============================================================
    STATS PAGE — HEADER  (.top-header)
    ============================================================ */
 .top-header {
-    display: flex;
-    align-items: center;
-    padding: 12px 16px;
-    background-color: #ffffff;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: 140px 1fr;
     gap: 12px;
+    align-items: center;
+    padding: 14px 16px;
+    max-width: 100%;
 }
 .top-header h1 {
-    font-size: 22px;
-    font-weight: bold;
+    font-size: 28px;
+    letter-spacing: 0.6px;
+    text-align: center;
 }
-.top-header .logo img { width: 50px; }
+.top-header .logo img { width: 120px; }
 
 /* ============================================================
    STANDINGS PAGE — HEADER  (.header)
    ============================================================ */
 .header {
-    display: flex;
-    align-items: center;
-    padding: 12px 16px;
-    background-color: #ffffff;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: 140px 1fr;
     gap: 12px;
+    align-items: center;
+    padding: 14px 16px;
+    max-width: 100%;
 }
 .header h1 {
-    flex: 1;
+    font-size: 28px;
+    letter-spacing: 0.6px;
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
 }
-.header .logo img { width: 60px; flex-shrink: 0; }
+.header .logo img { width: 120px; }
 
 /* ============================================================
    SHARED NAVIGATION
-   Both pages share .nav-toggle and .nav-menu;
-   Stats uses .main-nav, Standings uses .nav-bar.
+   Stats uses .main-nav, Standings uses .nav-bar
    ============================================================ */
 .main-nav,
 .nav-bar {
-    background-color: #c8102e;
+    background: #a40f0f;
     position: relative;
+}
+
+.main-nav ul,
+.nav-bar ul {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 16px;
+}
+
+.main-nav a,
+.nav-bar a {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+    border-radius: 3px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.main-nav a:hover,
+.nav-bar a:hover,
+.main-nav a.active,
+.nav-bar a.active {
+    background: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.4);
 }
 
 /* Hamburger button — hidden on desktop */
@@ -94,33 +125,56 @@ img {
     border-radius: 2px;
 }
 
+/* Nav menu — reused class on both pages */
 .nav-menu {
     display: flex;
+    gap: 8px;
     justify-content: flex-end;
-    list-style: none;
-    padding: 0 16px;
+    align-items: center;
+    padding: 10px 16px;
 }
-.nav-menu li { margin-left: 20px; }
+.nav-menu li { margin: 0; }
 .nav-menu a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 12px 0;
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+    border-radius: 3px;
     font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+}
+.nav-menu a:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.4); }
+
+/* ============================================================
+   PAGE CONTAINER & CARDS
+   ============================================================ */
+.container {
+    max-width: 1000px;
+    margin: 24px auto;
+    padding: 0 16px 48px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    padding: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
 }
 
 /* ============================================================
    STATS PAGE — SECTION LABEL
    ============================================================ */
 .section-label {
-    background-color: #c8102e;
+    background: #a40f0f;
     color: white;
     padding: 10px 16px;
-    font-weight: bold;
+    font-weight: 700;
     width: fit-content;
     margin: 16px 16px 0;
     font-size: 14px;
+    border-radius: 2px;
 }
 
 /* ============================================================
@@ -129,25 +183,30 @@ img {
 .stats-leader {
     display: flex;
     flex-wrap: wrap;
-    background-color: #e6e6e6;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
     margin: 16px;
-    padding: 16px;
+    padding: 18px;
     align-items: center;
     gap: 16px;
 }
 .leader-logo img  { width: 100px; }
-.leader-info h2   { margin-bottom: 8px;  font-size: 18px; }
-.leader-info p    { margin-bottom: 4px;  font-size: 14px; }
+.leader-info h2   { margin-bottom: 8px; font-size: 20px; color: #333; }
+.leader-info p    { margin-bottom: 4px; font-size: 14px; line-height: 1.6; }
 
 /* ============================================================
    STATS PAGE — CONFERENCE TABLES
    ============================================================ */
-.conference       { margin: 16px; }
+.conference { margin: 16px; }
+
 .conference h3 {
-    background-color: #c8102e;
+    background: #a40f0f;
     color: white;
-    padding: 10px 12px;
+    padding: 10px 14px;
     font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
 }
 
 .table-wrapper {
@@ -161,19 +220,24 @@ table {
     min-width: 480px;
     border-collapse: collapse;
     background-color: white;
+    border: 1px solid #e6e6e6;
 }
-thead               { background-color: #ddd; }
-th, td {
-    padding: 8px 10px;
-    text-align: left;
-    font-size: 13px;
-    white-space: nowrap;
-}
-th                  { font-weight: bold; }
-tbody tr:nth-child(even) { background-color: #f5f5f5; }
 
-.positive { color: green; font-weight: bold; }
-.negative { color: red;   font-weight: bold; }
+thead { background-color: #f5f5f5; }
+
+th, td {
+    padding: 9px 12px;
+    text-align: left;
+    font-size: 14px;
+    white-space: nowrap;
+    border-bottom: 1px solid #eee;
+}
+th { font-weight: 700; color: #333; }
+tbody tr:nth-child(even) { background-color: #fafafa; }
+tbody tr:hover { background-color: #f0f0f0; }
+
+.positive { color: #1a7a1a; font-weight: 700; }
+.negative { color: #a40f0f; font-weight: 700; }
 
 /* ============================================================
    STANDINGS PAGE — CONFERENCE SECTION
@@ -181,7 +245,7 @@ tbody tr:nth-child(even) { background-color: #f5f5f5; }
 .conference-section { margin-top: 20px; }
 
 .conference-header {
-    background-color: #c8102e;
+    background: #a40f0f;
     color: white;
     padding: 12px 16px;
     display: flex;
@@ -190,7 +254,7 @@ tbody tr:nth-child(even) { background-color: #f5f5f5; }
     flex-wrap: wrap;
     gap: 8px;
 }
-.conference-header h2 { font-size: 18px; }
+.conference-header h2 { font-size: 20px; font-weight: 700; letter-spacing: 0.4px; }
 
 .conference-dropdown {
     padding: 6px 10px;
@@ -199,13 +263,15 @@ tbody tr:nth-child(even) { background-color: #f5f5f5; }
     border: none;
     min-height: 36px;
     cursor: pointer;
+    background: #fff;
+    color: #222;
 }
 
 .standings-container {
     display: flex;
     justify-content: center;
     gap: 16px;
-    background-color: #c8102e;
+    background: #a40f0f;
     padding: 20px 16px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -216,46 +282,63 @@ tbody tr:nth-child(even) { background-color: #f5f5f5; }
     flex: 1;
     min-width: 120px;
     max-width: 300px;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
 }
 .column-header {
-    background-color: #bfbfbf;
+    background-color: #f5f5f5;
     padding: 12px 10px;
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
     font-size: 14px;
+    border-bottom: 1px solid #e6e6e6;
+    color: #333;
 }
-.row           { padding: 11px 10px; font-size: 13px; }
-.row.alt       { background-color: #d9d9d9; }
+.row           { padding: 11px 10px; font-size: 14px; border-bottom: 1px solid #eee; }
+.row.alt       { background-color: #fafafa; }
+.row:hover     { background-color: #f0f0f0; }
 
 /* ============================================================
    SHARED FOOTER
-   Stats uses <footer>, Standings uses <footer class="footer">
    ============================================================ */
 footer,
-.footer {
-    background-color: #c8102e;
-    color: white;
-    padding: 14px 16px;
+.footer,
+.site-footer {
+    background: #a40f0f;
+    color: #fff;
+    margin-top: 32px;
+    padding: 28px 0;
+}
+
+.footer-inner {
+    max-width: 1000px;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 0 16px;
     flex-wrap: wrap;
-    gap: 10px;
 }
 
 .footer-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
+    justify-content: center;
 }
 .footer-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.15);
 }
+.footer-links a:hover { background: rgba(255,255,255,0.2); }
 
 /* Stats page footer page indicator */
-.footer-page { font-weight: bold; font-size: 14px; }
+.footer-page { font-weight: 700; font-size: 14px; color: #fff; }
 
 /* Standings page pagination buttons */
 .page-controls { display: flex; align-items: center; gap: 10px; }
@@ -263,14 +346,16 @@ footer,
     background-color: white;
     border: none;
     padding: 8px 14px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
     font-size: 15px;
     min-height: 44px;
     min-width: 44px;
     border-radius: 3px;
+    color: #a40f0f;
 }
-.page-controls span { font-weight: bold; font-size: 14px; }
+.page-controls button:hover { background: #f0f0f0; }
+.page-controls span { font-weight: 700; font-size: 14px; color: #fff; }
 
 /* ============================================================
    RESPONSIVE — MOBILE  (≤ 600px)
@@ -278,54 +363,67 @@ footer,
 @media (max-width: 600px) {
 
     /* Headers */
-    .top-header h1          { font-size: 18px; }
-    .top-header .logo img   { width: 40px; }
-    .header h1              { font-size: 17px; text-align: left; }
-    .header .logo img       { width: 44px; }
+    .top-header,
+    .header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 8px;
+        padding: 10px;
+    }
+    .top-header h1,
+    .header h1             { font-size: 20px; text-align: center; }
+    .top-header .logo img,
+    .header .logo img      { width: 80px; margin: 0 auto; }
 
     /* Show hamburger, collapse nav */
-    .nav-toggle             { display: flex; }
+    .nav-toggle            { display: flex; }
     .nav-menu {
         display: none;
         flex-direction: column;
         padding: 0;
-        background-color: #a50d24;
+        gap: 0;
+        background-color: #8f1216;
     }
-    .nav-menu.open          { display: flex; }
-    .nav-menu li            { margin: 0; border-top: 1px solid rgba(255,255,255,0.15); }
-    .nav-menu a             { padding: 14px 16px; font-size: 15px; }
+    .nav-menu.open         { display: flex; }
+    .nav-menu li           { margin: 0; border-top: 1px solid rgba(255,255,255,0.15); width: 100%; }
+    .nav-menu a            { padding: 14px 16px; font-size: 15px; border: none; border-radius: 0; background: transparent; display: block; width: 100%; }
 
     /* Stats leader card */
-    .stats-leader           { flex-direction: column; align-items: flex-start; margin: 12px; padding: 12px; }
-    .leader-logo img        { width: 80px; }
-    .leader-info h2         { font-size: 16px; }
+    .stats-leader          { flex-direction: column; align-items: flex-start; margin: 12px; padding: 12px; }
+    .leader-logo img       { width: 80px; }
+    .leader-info h2        { font-size: 17px; }
 
     /* Conference tables */
-    .conference             { margin: 12px; }
-    .conference h3          { font-size: 15px; }
-    th, td                  { padding: 7px 8px; font-size: 12px; }
+    .conference            { margin: 12px; }
+    .conference h3         { font-size: 15px; }
+    th, td                 { padding: 7px 8px; font-size: 12px; }
+
+    /* Section label */
+    .section-label         { margin: 12px 12px 0; }
 
     /* Standings columns */
-    .conference-header h2   { font-size: 15px; }
-    .standings-container    { gap: 8px; padding: 12px 10px; justify-content: flex-start; }
-    .column                 { min-width: 100px; }
-    .column-header          { padding: 10px 8px; font-size: 12px; }
-    .row                    { padding: 10px 8px; font-size: 12px; }
+    .conference-header h2  { font-size: 16px; }
+    .standings-container   { gap: 8px; padding: 12px 10px; justify-content: flex-start; }
+    .column                { min-width: 100px; }
+    .column-header         { padding: 10px 8px; font-size: 12px; }
+    .row                   { padding: 10px 8px; font-size: 12px; }
 
     /* Footer */
-    footer, .footer         { flex-direction: column; align-items: flex-start; }
+    footer, .footer        { padding: 20px 0; }
+    .footer-inner          { flex-direction: column; gap: 12px; }
+    .footer-links          { gap: 8px; }
 }
 
 /* ============================================================
-   RESPONSIVE — TABLET  (601px – 900px)
+   RESPONSIVE — TABLET  (601px – 980px)
    ============================================================ */
-@media (min-width: 601px) and (max-width: 900px) {
+@media (min-width: 601px) and (max-width: 980px) {
 
-    .top-header h1          { font-size: 20px; }
-    .header h1              { font-size: 20px; }
-    .nav-menu li            { margin-left: 14px; }
-    .nav-menu a             { font-size: 13px; }
-    .leader-logo img        { width: 90px; }
-    .standings-container    { gap: 12px; padding: 16px 12px; }
-    .column                 { min-width: 140px; }
+    .top-header,
+    .header                { grid-template-columns: 110px 1fr; }
+    .top-header h1,
+    .header h1             { font-size: 22px; }
+    .standings-container   { gap: 12px; padding: 16px 12px; }
+    .column                { min-width: 140px; }
+    .footer-inner          { flex-direction: column; gap: 12px; }
 }
