@@ -8,102 +8,108 @@
 </head>
 <body>
 
-    <header class="header">
+    <header class="site-header">
         <div class="header-inner">
-        <div class="logo"><img src="images/CrowdNoiseLogo.jpg" alt="Crowd Noise Logo"></div>
-        <h1>Standings Page</h1>
+            <div class="logo" aria-hidden="true">
+                <img src="CrowdNoiseLogo.jpg" alt="Crowd Noise logo">
+            </div>
+
+            <div class="title-area">
+                <h1>Standings</h1>
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="StatsPage.html">Stats</a></li>
+                    <li><a href="StandingsPage.html" class="active" aria-current="page">Standings</a></li>
+                    <li><a href="RankingsPage.html">Rankings</a></li>
+                    <li><a href="Debate.html">Debate</a></li>
+                    <li><a href="#">Search</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <nav class="nav-bar">
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="StatsPage.html">Stats</a></li>
-            <li><a href="StandingsPage.html" class="active">Standings</a></li>
-            <li><a href="Rankings.html">Rankings</a></li>
-            <li><a href="Debate.html">Debate</a></li>
-        </ul>
-    </nav>
-
-    <section class="conference-section">
-        <div class="conference-header">
-            <h2>Eastern Conference</h2>
-            <select class="conference-dropdown" aria-label="Select conference">
-                <option>Eastern Conference</option>
-                <option>Western Conference</option>
-            </select>
-        </div>
-
-        <div class="standings-container">
-            <div class="column">
-                <div class="column-header">Rank</div>
-                <div class="row">1. Detroit Pistons</div>
-                <div class="row alt">2. Boston Celtics</div>
-                <div class="row">3. New York Knicks</div>
-                <div class="row alt">4. Cleveland Cavaliers</div>
-                <div class="row">5. Toronto Raptors</div>
-                <div class="row alt">6. Philadelphia 76ers</div>
-                <div class="row">7. Orlando Magic</div>
-                <div class="row alt">8. Miami Heat</div>
-                <div class="row">9. Charlotte Hornets</div>
-                <div class="row alt">10. Atlanta Hawks</div>
+    <main>
+        <section class="conference-section">
+            <div class="conference-header">
+                <h2>Eastern Conference</h2>
+                <select class="conference-dropdown" aria-label="Select conference">
+                    <option>Eastern Conference</option>
+                    <option>Western Conference</option>
+                </select>
             </div>
 
-            <div class="column">
-                <div class="column-header">Record</div>
-                <div class="row">40-13</div>
-                <div class="row alt">35-19</div>
-                <div class="row">35-20</div>
-                <div class="row alt">34-21</div>
-                <div class="row">32-23</div>
-                <div class="row alt">30-24</div>
-                <div class="row">28-25</div>
-                <div class="row alt">29-27</div>
-                <div class="row">26-29</div>
-                <div class="row alt">26-30</div>
-            </div>
+            <div class="standings-container">
+                <div class="column">
+                    <div class="column-header">Rank</div>
+                    <div class="row">1. Detroit Pistons</div>
+                    <div class="row alt">2. Boston Celtics</div>
+                    <div class="row">3. New York Knicks</div>
+                    <div class="row alt">4. Cleveland Cavaliers</div>
+                    <div class="row">5. Toronto Raptors</div>
+                    <div class="row alt">6. Philadelphia 76ers</div>
+                    <div class="row">7. Orlando Magic</div>
+                    <div class="row alt">8. Miami Heat</div>
+                    <div class="row">9. Charlotte Hornets</div>
+                    <div class="row alt">10. Atlanta Hawks</div>
+                </div>
 
-            <div class="column">
-                <div class="column-header">Division</div>
-                <div class="row">8-3</div>
-                <div class="row alt">7-5</div>
-                <div class="row">10-3</div>
-                <div class="row alt">7-3</div>
-                <div class="row">4-9</div>
-                <div class="row alt">8-6</div>
-                <div class="row">6-5</div>
-                <div class="row alt">4-5</div>
-                <div class="row">8-4</div>
-                <div class="row alt">5-5</div>
+                <div class="column">
+                    <div class="column-header">Record</div>
+                    <div class="row">40-13</div>
+                    <div class="row alt">35-19</div>
+                    <div class="row">35-20</div>
+                    <div class="row alt">34-21</div>
+                    <div class="row">32-23</div>
+                    <div class="row alt">30-24</div>
+                    <div class="row">28-25</div>
+                    <div class="row alt">29-27</div>
+                    <div class="row">26-29</div>
+                    <div class="row alt">26-30</div>
+                </div>
+
+                <div class="column">
+                    <div class="column-header">Division</div>
+                    <div class="row">8-3</div>
+                    <div class="row alt">7-5</div>
+                    <div class="row">10-3</div>
+                    <div class="row alt">7-3</div>
+                    <div class="row">4-9</div>
+                    <div class="row alt">8-6</div>
+                    <div class="row">6-5</div>
+                    <div class="row alt">4-5</div>
+                    <div class="row">8-4</div>
+                    <div class="row alt">5-5</div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="site-footer">
         <div class="footer-inner">
-            <div class="footer-links">
-                <a href="#">Terms of Use</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Contact Us</a>
-            </div>
-            <div class="page-controls">
-                <button onclick="window.location.href='page2.html'" aria-label="Previous page">←</button>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="StatsPage.html">Stats</a></li>
+                    <li><a href="StandingsPage.html" aria-current="page">Standings</a></li>
+                    <li><a href="RankingsPage.html">Rankings</a></li>
+                    <li><a href="Debate.html">Debate</a></li>
+                    <li><a href="#">Search</a></li>
+                </ul>
+            </nav>
+
+            <div class="page-controls" aria-label="Page navigation">
+                <a href="StatsPage.html" aria-label="Previous page">←</a>
                 <span>Page 3</span>
-                <button onclick="window.location.href='page4.html'" aria-label="Next page">→</button>
+                <a href="RankingsPage.html" aria-label="Next page">→</a>
+            </div>
+
+            <div class="footer-logo" aria-hidden="true">
+                <img src="CrowdNoiseLogo.jpg" alt="Crowd Noise logo">
             </div>
         </div>
     </footer>
-
-    <script>
-        const toggle = document.querySelector('.nav-toggle');
-        const menu   = document.querySelector('.nav-menu');
-        toggle.addEventListener('click', function () {
-            var expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!expanded));
-            menu.classList.toggle('open');
-        });
-    </script>
 </body>
 </html>
