@@ -13,11 +13,9 @@
             <div class="logo" aria-hidden="true">
                 <img src="images/CrowdNoiseLogo.jpg" alt="Crowd Noise logo">
             </div>
-
             <div class="title-area">
-                <h1>Standings</h1>
+                <h1>Standings Page</h1>
             </div>
-
             <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -31,17 +29,19 @@
         </div>
     </header>
 
+    <div class="accent-bar" aria-hidden="true"></div>
+
     <main>
-        <section class="conference-section">
+        <section class="conference-section" aria-labelledby="conference-heading">
             <div class="conference-header">
-                <h2>Eastern Conference</h2>
+                <h2 id="conference-heading">Eastern Conference</h2>
                 <select class="conference-dropdown" aria-label="Select conference">
                     <option>Eastern Conference</option>
                     <option>Western Conference</option>
                 </select>
             </div>
 
-            <div class="standings-container">
+            <div class="standings-container" aria-label="Conference standings">
                 <div class="column">
                     <div class="column-header">Rank</div>
                     <div class="row">1. Detroit Pistons</div>
@@ -99,13 +99,6 @@
                     <li><a href="#">Search</a></li>
                 </ul>
             </nav>
-
-            <div class="page-controls" aria-label="Page navigation">
-                <a href="StatsPage.html" aria-label="Previous page">←</a>
-                <span>Page 3</span>
-                <a href="RankingsPage.html" aria-label="Next page">→</a>
-            </div>
-
             <div class="footer-logo" aria-hidden="true">
                 <img src="CrowdNoiseLogo.jpg" alt="Crowd Noise logo">
             </div>
