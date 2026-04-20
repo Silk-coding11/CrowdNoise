@@ -1,111 +1,217 @@
-/* ============================================================
-   HEADER  (.top-header / .header)
-   ============================================================ */
-.top-header,
-.header {
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    position: sticky;
-    top: 0;
-    z-index: 50;
+/* ---------- Reset & base typography ---------- */
+* { box-sizing: border-box; }
+html,body { height: 100%; margin: 0; font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: #222; background: #fff; }
+a { color: inherit; text-decoration: none; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+/* ---------- Header / top navigation ---------- */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
-.top-header .header-inner,
-.header .header-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 140px 1fr 360px;
-    gap: 12px;
-    align-items: center;
-    padding: 14px 16px;
+.header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 140px 1fr 360px;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
 }
 
-.top-header h1,
-.header h1 {
-    font-size: 28px;
-    letter-spacing: 0.6px;
-    text-align: center;
-    margin: 0;
+/* Logo area */
+.logo img { width: 100%; max-width: 120px; height: auto; display: block; }
+
+/* Page title */
+.title-area, .page-title { text-align: center; }
+.title-area h1, .page-title h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 0.6px;
 }
 
-.top-header .logo img,
-.header .logo img { width: 100%; max-width: 120px; }
+/* Main nav */
+.main-nav ul { display: flex; gap: 8px; justify-content: flex-end; align-items: center; }
+.main-nav a {
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 3px;
+  font-size: 14px;
+}
+.main-nav a.active { background: #f5f5f5; border-color: #ccc; }
 
-/* ============================================================
-   NAVIGATION  (.main-nav / .nav-bar)
-   ============================================================ */
-.main-nav,
-.nav-bar {
-    background: transparent;   /* removed red bar */
-    position: relative;
+/* ---------- Accent bars (thick red stripes) ---------- */
+.accent-bar { background: #a40f0f; height: 14px; }
+.accent-bar.thin { height: 12px; margin: 18px 0; }
+
+/* ---------- Page container & cards (shared) ---------- */
+.container { max-width: 1000px; margin: 24px auto; padding: 0 16px 48px; }
+.card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
 }
 
-.main-nav ul,
-.nav-bar .nav-menu {
-    display: flex;
-    gap: 8px;
-    justify-content: flex-end;
-    align-items: center;
+/* Section header */
+.section-header h2 { margin: 0 0 12px 0; font-size: 20px; color: #333; }
+
+/* Rankings-specific layout */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding: 8px;
+}
+.teams-grid ol { margin: 0; padding-left: 28px; line-height: 1.65; color: #222; }
+
+/* Player grid */
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 18px;
+}
+.position h3 { margin: 0 0 8px 0; font-size: 16px; }
+.position ol { margin: 0; padding-left: 22px; line-height: 1.5; font-size: 14px; }
+
+/* Trends / aside */
+#trends .trends-content { padding: 8px 4px; line-height: 1.6; font-size: 15px; }
+#trends p { margin: 0 0 12px 0; }
+
+/* ---------- Make a Post form (Debate page) ---------- */
+.post-form { max-width: 860px; margin: 6px auto 0; }
+.post-form label { display:block; margin-bottom:6px; font-weight:600; color:#333; font-size:14px; }
+.form-row { margin-bottom:14px; }
+.form-row input[type="text"],
+.form-row textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 15px;
+  resize: vertical;
+  background: #fff;
+}
+.form-actions { text-align: right; }
+.btn {
+  display: inline-block; padding: 10px 18px; border-radius: 24px; border: none; cursor:pointer; font-weight:600;
+  background: #e6e6e6; color:#222;
+}
+.btn-post { background: #f0f0f0; border: 1px solid #d6d6d6; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.03); }
+
+/* ---------- Community posts list (Debate page) ---------- */
+.community .no-posts { padding: 18px; color:#555; text-align:center; font-style:italic; background: #fafafa; border-radius:4px; }
+.community-list { margin-top: 16px; display: grid; gap: 16px; }
+.community-post {
+  border: 1px solid #eee; padding: 18px; border-radius: 4px; background: #fff;
+  display: block;
+}
+.post-topic { margin: 0 0 8px 0; font-size: 18px; }
+.post-stance { margin: 0 0 12px 0; color: #333; font-size: 14px; }
+.post-body { margin-bottom: 12px; white-space: pre-wrap; line-height: 1.45; color: #222; }
+.post-actions { display:flex; gap:10px; align-items:center; }
+.icon-btn { background: transparent; border: none; cursor: pointer; font-size: 18px; padding: 6px 10px; border-radius: 4px; }
+.icon-btn:hover { background: rgba(0,0,0,0.04); }
+.load-more { text-align:center; margin-top: 18px; }
+.btn-link { background: transparent; border: 1px solid rgba(0,0,0,0.08); padding: 8px 12px; border-radius: 20px; cursor: pointer; }
+
+/* ---------- Small decorative/utility styles ---------- */
+.centered-logo-large {
+    display: block;
+    margin: 0 auto 16px auto;
+    max-width: 320px;   /* smaller size */
+    width: 100%;
+    height: auto;
+    padding: 0;         /* remove extra white padding */
+  }
+  .hero-aside img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+  }
+
+/* ---------- Footer (from the Rankings page) ----------
+   This is the footer style you asked to use for both pages.
+   Full-width deep red bar, centered nav and small logo on the right.
+*/
+.site-footer {
+  background: #a40f0f;    /* deep red */
+  color: #fff;
+  margin-top: 32px;
+  padding: 28px 0;
 }
 
-.main-nav a,
-.nav-menu a {
-    display: inline-block;
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    background: #fff;
-    border-radius: 3px;
-    font-size: 14px;
-    font-weight: normal;
-    color: #222;
-    white-space: nowrap;
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
 }
 
-.main-nav a:hover,
-.main-nav a.active,
-.nav-menu a:hover,
-.nav-menu a.active {
-    background: #f5f5f5;
-    border-color: #ccc;
+/* Footer nav */
+.footer-nav ul { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.footer-nav a {
+  padding: 6px 10px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 14px;
 }
 
-/* Hide hamburger entirely — matches second stylesheet's approach */
-.nav-toggle { display: none !important; }
+/* Footer logo small (right side) */
+.footer-logo { margin-left: 12px; }
+.footer-logo img { width: 56px; height: auto; display: block; }
 
-/* ============================================================
-   RESPONSIVE — MOBILE (≤ 600px)
-   ============================================================ */
+/* ---------- Utility: wide red banner like debate screenshot footer band ---------- */
+.footer-band {
+  background: #8f1216;   /* slightly darker red for large band if needed */
+  padding: 36px 0;
+}
+
+/* ---------- Responsive adjustments ---------- */
 @media (max-width: 980px) {
-    .top-header .header-inner,
-    .header .header-inner {
-        grid-template-columns: 110px 1fr;
-        grid-template-rows: auto auto;
-    }
-    .main-nav,
-    .nav-bar {
-        grid-column: 1 / -1;
-        justify-self: start;
-    }
-    .main-nav ul,
-    .nav-bar .nav-menu {
-        overflow-x: auto;
-        padding-bottom: 6px;
-        gap: 6px;
-        justify-content: flex-start;
-    }
+  .header-inner { grid-template-columns: 110px 1fr; grid-template-rows: auto auto; }
+  .main-nav { grid-column: 1 / -1; justify-self: start; }
+  .main-nav ul { overflow-x: auto; padding-bottom: 6px; gap: 6px; }
+  .accent-bar { height: 12px; }
+  .teams-grid { grid-template-columns: 1fr; }
+  .players-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { flex-direction: column; gap: 12px; }
 }
 
 @media (max-width: 520px) {
-    .top-header .header-inner,
-    .header .header-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 8px;
-        padding: 10px;
-    }
-    .top-header .logo,
-    .header .logo { justify-self: center; }
-    .main-nav,
-    .nav-bar { display: none; }
+  .players-grid { grid-template-columns: 1fr; }
+  .header-inner { grid-template-columns: 1fr; text-align: center; gap: 8px; padding: 10px; }
+  .logo { justify-self: center; }
+  .main-nav { display: none; }
+  .footer-logo img { width: 48px; }
 }
+
+.hero-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.hero-intro p {
+    font-size: 22px;   /* change to 20px if you want it larger */
+    line-height: 1.6;
+  }
+
+
+
+
+
+
+
+
