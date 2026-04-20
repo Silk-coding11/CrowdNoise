@@ -8,87 +8,150 @@
 </head>
 <body>
 
-    <header class="top-header">
+    <header class="site-header">
         <div class="header-inner">
-        <div class="logo"><img src="images/CrowdNoiseLogo.jpg" alt="Logo"></div>
-        <h1>Stats Page</h1>
+            <div class="logo" aria-hidden="true">
+                <img src="CrowdNoiseLogo.jpg" alt="Crowd Noise logo">
+            </div>
+
+            <div class="title-area">
+                <h1>Stats</h1>
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="StatsPage.html" class="active" aria-current="page">Stats</a></li>
+                    <li><a href="StandingsPage.html">Standings</a></li>
+                    <li><a href="RankingsPage.html">Rankings</a></li>
+                    <li><a href="Debate.html">Debate</a></li>
+                    <li><a href="#">Search</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <nav class="main-nav">
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="StatsPage.html" class="active">Stats</a></li>
-            <li><a href="StandingsPage.html">Standings</a></li>
-            <li><a href="Rankings.html">Rankings</a></li>
-            <li><a href="Debate.html">Debate</a></li>
-        </ul>
-    </nav>
+    <main>
+        <section class="stats-leader">
+            <div class="leader-logo"><img src="pistons.jpg" alt="Detroit Pistons Logo"></div>
+            <div class="leader-info">
+                <h2>League Stats Leader</h2>
+                <p><strong>Team Stats Leader:</strong> Detroit Pistons</p>
+                <p>Points: 117.2 ppg</p>
+                <p>Rebounds: 45.6 rpg</p>
+                <p>Assists: 26.6 apg</p>
+                <p>Last 10: 8-2</p>
+            </div>
+        </section>
 
-    <section class="stats-leader">
-        <div class="leader-logo"><img src="images/Pistons.jpg" alt="Detroit Pistons Logo"></div>
-        <div class="leader-info">
-            <h2>League Stats Leader</h2>
-            <p><strong>Team Stats Leader:</strong> Detroit Pistons</p>
-            <p>Points: 117.2 ppg</p>
-            <p>Rebounds: 45.6 rpg</p>
-            <p>Assists: 26.6 apg</p>
-            <p>Last 10: 8-2</p>
-        </div>
-    </section>
+        <section class="conference">
+            <h3>Eastern Conference ↓</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Team</th><th>W</th><th>L</th><th>PCT</th><th>PPG</th><th>OPP PPG</th><th>DIFF</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Detroit Pistons</td><td>40</td><td>13</td><td>.755</td><td>117.2</td><td>109.3</td><td class="positive">+7.9</td></tr>
+                        <tr><td>Boston Celtics</td><td>35</td><td>19</td><td>.648</td><td>115.3</td><td>108.4</td><td class="positive">+6.9</td></tr>
+                        <tr><td>New York Knicks</td><td>35</td><td>20</td><td>.636</td><td>118.0</td><td>111.9</td><td class="positive">+6.1</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-    <section class="conference">
-        <h3>Eastern Conference ↓</h3>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr><th>Team</th><th>W</th><th>L</th><th>PCT</th><th>PPG</th><th>OPP PPG</th><th>DIFF</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Detroit Pistons</td><td>40</td><td>13</td><td>.755</td><td>117.2</td><td>109.3</td><td class="positive">+7.9</td></tr>
-                    <tr><td>Boston Celtics</td><td>35</td><td>19</td><td>.648</td><td>115.3</td><td>108.4</td><td class="positive">+6.9</td></tr>
-                    <tr><td>New York Knicks</td><td>35</td><td>20</td><td>.636</td><td>118.0</td><td>111.9</td><td class="positive">+6.1</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+        <section class="conference">
+            <h3>Western Conference ↓</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Team</th><th>W</th><th>L</th><th>PCT</th><th>PPG</th><th>OPP PPG</th><th>DIFF</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Oklahoma City Thunder</td><td>42</td><td>14</td><td>.750</td><td>119.7</td><td>108.0</td><td class="positive">+11.7</td></tr>
+                        <tr><td>Denver Nuggets</td><td>35</td><td>20</td><td>.636</td><td>120.4</td><td>116.3</td><td class="positive">+4.1</td></tr>
+                        <tr><td>Los Angeles Lakers</td><td>32</td><td>21</td><td>.611</td><td>116.0</td><td>110.5</td><td class="positive">+5.5</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-    <section class="conference">
-        <h3>Western Conference ↓</h3>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr><th>Team</th><th>W</th><th>L</th><th>PCT</th><th>PPG</th><th>OPP PPG</th><th>DIFF</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Oklahoma City Thunder</td><td>42</td><td>14</td><td>.750</td><td>119.7</td><td>108.0</td><td class="positive">+11.7</td></tr>
-                    <tr><td>Denver Nuggets</td><td>35</td><td>20</td><td>.636</td><td>120.4</td><td>116.3</td><td class="positive">+4.1</td></tr>
-                    <tr><td>Los Angeles Lakers</td><td>32</td><td>21</td><td>.611</td><td>116.0</td><td>110.5</td><td class="positive">+5.5</td></tr>
-                </tbody>
-            </table>
+        <div class="share-bar" aria-label="Share this page">
+            <span class="share-label">Share</span>
+            <button class="share-btn" type="button" data-platform="twitter">X / Twitter</button>
+            <button class="share-btn" type="button" data-platform="facebook">Facebook</button>
+            <button class="share-btn" type="button" data-platform="reddit">Reddit</button>
+            <button class="share-btn" type="button" data-platform="copy">Copy Link</button>
         </div>
-    </section>
+    </main>
 
     <footer class="site-footer">
         <div class="footer-inner">
-            <div class="footer-links">
-                <a href="#">Terms of Use</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Contact Us</a>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="StatsPage.html" aria-current="page">Stats</a></li>
+                    <li><a href="StandingsPage.html">Standings</a></li>
+                    <li><a href="RankingsPage.html">Rankings</a></li>
+                    <li><a href="Debate.html">Debate</a></li>
+                    <li><a href="#">Search</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-page">Page 2</div>
+
+            <div class="footer-logo" aria-hidden="true">
+                <img src="CrowdNoiseLogo.jpg" alt="Crowd Noise logo">
             </div>
-            <div class="footer-page">← Page 3 →</div>
         </div>
     </footer>
 
     <script>
-        const toggle = document.querySelector('.nav-toggle');
-        const menu   = document.querySelector('.nav-menu');
-        toggle.addEventListener('click', function () {
-            var expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!expanded));
-            menu.classList.toggle('open');
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('click', () => {
+                const tbody = row.closest('tbody');
+                const alreadyHighlighted = row.classList.contains('highlight');
+                tbody.querySelectorAll('tr').forEach(r => r.classList.remove('highlight'));
+                if (!alreadyHighlighted) row.classList.add('highlight');
+            });
+        });
+
+        const shareConfig = {
+            twitter: (url, title) =>
+                `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
+            facebook: (url) =>
+                `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+            reddit: (url, title) =>
+                `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
+        };
+
+        document.querySelectorAll('.share-btn').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const platform = btn.dataset.platform;
+                const url = window.location.href;
+                const title = document.title;
+
+                if (platform === 'copy') {
+                    try {
+                        await navigator.clipboard.writeText(url);
+                        const original = btn.textContent;
+                        btn.textContent = 'Copied!';
+                        btn.style.color = '#22c55e';
+                        btn.style.borderColor = '#22c55e';
+                        setTimeout(() => {
+                            btn.textContent = original;
+                            btn.style.color = '';
+                            btn.style.borderColor = '';
+                        }, 2000);
+                    } catch (error) {
+                        window.prompt('Copy this link:', url);
+                    }
+                    return;
+                }
+
+                const shareUrl = shareConfig[platform](url, title);
+                window.open(shareUrl, '_blank', 'width=600,height=450,noopener,noreferrer');
+            });
         });
     </script>
 </body>
