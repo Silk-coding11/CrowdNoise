@@ -1,260 +1,387 @@
 /* ============================================================
    Shared stylesheet for StatsPage & StandingsPage
-   Matches the site-wide header/footer pattern used elsewhere
    ============================================================ */
 
-/* ---------- Reset & base ---------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
-    min-height: 100%;
-    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: #222;
-    background: #fff;
-    overflow-x: hidden;
+  height: 100%;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #222;
+  background: #fff;
+  overflow-x: hidden;
 }
+
+body.standings-page {
+  background: #a40f0f;
+  color: #222;
+}
+
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
-img { height: auto; display: block; max-width: 100%; }
-button, select, input, textarea { font: inherit; }
+img { display: block; max-width: 100%; height: auto; }
 
-/* ============================================================
-   SHARED SITE HEADER
-   ============================================================ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .site-header {
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    position: sticky;
-    top: 0;
-    z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 .header-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 140px 1fr 360px;
-    gap: 12px;
-    align-items: center;
-    padding: 14px 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
 }
 
+.logo { flex: 0 0 auto; }
 .logo img { width: 100%; max-width: 120px; }
 
 .title-area,
 .page-title {
-    text-align: center;
+  text-align: center;
+  flex: 0 0 auto;
 }
 
 .title-area h1,
 .page-title h1 {
-    margin: 0;
-    font-size: 28px;
-    letter-spacing: 0.6px;
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 0.6px;
 }
 
-/* Shared top navigation */
 .main-nav {
-    justify-self: end;
+  margin-left: auto;
+  flex: 0 0 auto;
 }
 
 .main-nav ul {
-    display: flex;
-    gap: 8px;
-    justify-content: flex-end;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .main-nav a {
-    display: inline-block;
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    background: #fff;
-    border-radius: 3px;
-    font-size: 14px;
-    font-weight: 600;
-    white-space: nowrap;
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 3px;
+  font-size: 14px;
+  white-space: nowrap;
 }
 
 .main-nav a:hover,
 .main-nav a.active,
 .main-nav a[aria-current="page"] {
-    background: #f5f5f5;
-    border-color: #ccc;
+  background: #f5f5f5;
+  border-color: #ccc;
 }
 
-/* ---------- Accent bars ---------- */
 .accent-bar { background: #a40f0f; height: 14px; }
-.accent-bar.thin { height: 12px; margin: 18px 0; }
 
-/* ---------- Page container & cards ---------- */
-.container { max-width: 1000px; margin: 24px auto; padding: 0 16px 48px; }
-.card {
-    background: #fff;
-    border: 1px solid #e6e6e6;
-    padding: 18px;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
-}
-
-/* Section header */
-.section-header h2 { margin: 0 0 12px 0; font-size: 20px; color: #333; }
-
-/* Rankings-specific layout */
-.teams-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    align-items: start;
-    padding: 8px;
-}
-.teams-grid ol { margin: 0; padding-left: 28px; line-height: 1.65; color: #222; }
-
-/* Player grid */
-.players-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    gap: 18px;
-}
-.position h3 { margin: 0 0 8px 0; font-size: 16px; }
-.position ol { margin: 0; padding-left: 22px; line-height: 1.5; font-size: 14px; }
-
-/* Trends / aside */
-#trends .trends-content { padding: 8px 4px; line-height: 1.6; font-size: 15px; }
-#trends p { margin: 0 0 12px 0; }
-
-/* ---------- Make a Post form (Debate page) ---------- */
-.post-form { max-width: 860px; margin: 6px auto 0; }
-.post-form label { display:block; margin-bottom:6px; font-weight:600; color:#333; font-size:14px; }
-.form-row { margin-bottom:14px; }
-.form-row input[type="text"],
-.form-row textarea {
+/* Standings page: preserve the original full-width body look */
+body.standings-page .standings-main {
+  background: #a40f0f;
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 15px;
-  resize: vertical;
-  background: #fff;
 }
-.form-actions { text-align: right; }
-.btn {
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 24px;
-  border: none;
+
+.conference-section {
+  margin: 0;
+  width: 100%;
+}
+
+.conference-header {
+  background: #a40f0f;
+  color: #000;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.conference-header h2 {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: #fff;
+}
+
+.conference-dropdown {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #bdbdbd;
+  min-height: 38px;
+  min-width: 190px;
   cursor: pointer;
-  font-weight: 600;
-  background: #e6e6e6;
+  background: #fff;
   color: #222;
 }
-.btn-post { background: #f0f0f0; border: 1px solid #d6d6d6; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.03); }
 
-/* ---------- Community posts list (Debate page) ---------- */
-.community .no-posts { padding: 18px; color:#555; text-align:center; font-style:italic; background: #fafafa; border-radius:4px; }
-.community-list { margin-top: 16px; display: grid; gap: 16px; }
-.community-post {
-  border: 1px solid #eee;
-  padding: 18px;
-  border-radius: 4px;
+.conference-dropdown:hover {
+  border-color: #9c9c9c;
+}
+
+.conference-dropdown:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.75);
+  outline-offset: 2px;
+}
+
+.standings-container {
+  display: flex;
+  gap: 20px;
+  background: #a40f0f;
+  padding: 0;
+  width: 100%;
+}
+
+.column {
+  flex: 1 1 0;
+  min-width: 0;
   background: #fff;
+}
+
+.column-header {
+  background: #e0e0e0;
+  padding: 8px 10px;
+  font-weight: 600;
+  text-align: left;
+  font-size: 15px;
+  color: #222;
+}
+
+.row {
+  padding: 10px 8px;
+  font-size: 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.row.alt { background: #ededed; }
+
+body.standings-page .site-footer {
+  background: #a40f0f;
+  color: #fff;
+  margin-top: 0;
+  padding: 18px 12px 12px;
+}
+
+.site-footer {
+  background: #a40f0f;
+  color: #fff;
+  padding: 18px 16px;
+}
+
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-share {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.share-label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.share-btn {
+  padding: 6px 10px;
+  font-size: 13px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.share-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.footer-legal {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.footer-legal a {
+  padding: 6px 10px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.1);
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-self: end;
+}
+
+.page-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-controls a {
+  padding: 6px 10px;
+  background: #fff;
+  color: #a40f0f;
+  border-radius: 3px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.page-controls a:hover {
+  background: #f0f0f0;
+}
+
+.footer-logo img {
+  width: 48px;
+  height: auto;
   display: block;
 }
-.post-topic { margin: 0 0 8px 0; font-size: 18px; }
-.post-stance { margin: 0 0 12px 0; color: #333; font-size: 14px; }
-.post-body { margin-bottom: 12px; white-space: pre-wrap; line-height: 1.45; color: #222; }
-.post-actions { display:flex; gap:10px; align-items:center; }
-.icon-btn { background: transparent; border: none; cursor: pointer; font-size: 18px; padding: 6px 10px; border-radius: 4px; }
-.icon-btn:hover { background: rgba(0,0,0,0.04); }
-.load-more { text-align:center; margin-top: 18px; }
-.btn-link { background: transparent; border: 1px solid rgba(0,0,0,0.08); padding: 8px 12px; border-radius: 20px; cursor: pointer; }
 
-/* ---------- Small decorative/utility styles ---------- */
-.centered-logo-large {
-    display: block;
-    margin: 0 auto 16px auto;
-    max-width: 320px;
-    width: 100%;
-    height: auto;
-    padding: 0;
-}
-.hero-aside {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.hero-aside img {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-}
-.hero-intro p {
-    font-size: 22px;
-    line-height: 1.6;
+@media (max-width: 700px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footer-right {
+    justify-self: center;
+  }
 }
 
-/* ---------- Stats page ---------- */
+.page-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+}
+
+.page-controls span {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.footer-logo { display: none; }
+
+/* Stats page and other shared elements kept intact */
+.container {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px 48px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+}
+
+.section-label {
+  background: #a40f0f;
+  color: #fff;
+  padding: 10px 16px;
+  font-weight: 700;
+  width: fit-content;
+  margin: 16px 16px 0;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
 .stats-leader {
-    display: flex;
-    flex-wrap: wrap;
-    background: #fff;
-    border: 1px solid #e6e6e6;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    margin: 16px;
-    padding: 18px;
-    align-items: center;
-    gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  margin: 16px;
+  padding: 18px;
+  align-items: center;
+  gap: 16px;
 }
+
 .leader-logo img { width: 100px; }
-.leader-info h2  { margin-bottom: 8px; font-size: 20px; color: #333; }
-.leader-info p   { margin-bottom: 4px; font-size: 14px; line-height: 1.6; }
+.leader-info h2 { margin-bottom: 8px; font-size: 20px; color: #333; }
+.leader-info p { margin-bottom: 4px; font-size: 14px; line-height: 1.6; }
 
 .conference { margin: 16px; }
 .conference h3 {
-    background: #a40f0f;
-    color: #fff;
-    padding: 10px 14px;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 0.4px;
+  background: #a40f0f;
+  color: #fff;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
 }
 
 .table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 table {
-    width: 100%;
-    min-width: 480px;
-    border-collapse: collapse;
-    background: #fff;
-    border: 1px solid #e6e6e6;
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #e6e6e6;
 }
+
 thead { background: #f5f5f5; }
 th, td {
-    padding: 9px 12px;
-    text-align: left;
-    font-size: 14px;
-    white-space: nowrap;
-    border-bottom: 1px solid #eee;
+  padding: 9px 12px;
+  text-align: left;
+  font-size: 14px;
+  white-space: nowrap;
+  border-bottom: 1px solid #eee;
 }
 th { font-weight: 700; color: #333; }
 tbody tr:nth-child(even) { background: #fafafa; }
 tbody tr:hover { background: #f0f0f0; }
+tbody tr { cursor: pointer; transition: background 0.15s; }
+tbody tr.highlight { background: rgba(164, 15, 15, 0.08) !important; }
 .positive { color: #1a7a1a; font-weight: 700; }
 .negative { color: #a40f0f; font-weight: 700; }
 
-tbody tr {
-  cursor: pointer;
-  transition: background 0.15s;
-}
-tbody tr.highlight {
-  background: rgba(164, 15, 15, 0.08) !important;
-}
-
-.share-bar {
+/* .share-bar {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -262,6 +389,7 @@ tbody tr.highlight {
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
   flex-wrap: wrap;
+  margin: 16px;
 }
 
 .share-label {
@@ -285,134 +413,47 @@ tbody tr.highlight {
 .share-btn:hover {
   background: rgba(164, 15, 15, 0.08);
   border-color: #a40f0f;
-}
+} */
 
-/* ---------- Standings page ---------- */
-.conference-section { margin-top: 20px; }
-.conference-header {
-    background: #a40f0f;
-    color: #fff;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-.conference-header h2 { font-size: 20px; font-weight: 700; letter-spacing: 0.4px; }
-.conference-dropdown {
-    padding: 6px 10px;
-    font-size: 14px;
-    border-radius: 3px;
-    border: none;
-    min-height: 36px;
-    cursor: pointer;
-    background: #fff;
-    color: #222;
-}
-.standings-container {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    background: #a40f0f;
-    padding: 20px 16px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
-.column {
-    background: #fff;
-    flex: 1;
-    min-width: 120px;
-    max-width: 300px;
-    border: 1px solid #e6e6e6;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-}
-.column-header {
-    background: #f5f5f5;
-    padding: 12px 10px;
-    font-weight: 700;
-    text-align: center;
-    font-size: 14px;
-    border-bottom: 1px solid #e6e6e6;
-    color: #333;
-}
-.row { padding: 11px 10px; font-size: 14px; border-bottom: 1px solid #eee; }
-.row.alt { background: #fafafa; }
-.row:hover { background: #f0f0f0; }
-
-/* ============================================================
-   SHARED FOOTER
-   ============================================================ */
-.site-footer {
-    background: #a40f0f;
-    color: #fff;
-    margin-top: 32px;
-    padding: 24px 0;
-}
-
-.footer-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.footer-nav ul {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.footer-nav a {
-    padding: 6px 10px;
-    border-radius: 3px;
-    background: rgba(255,255,255,0.08);
-    color: #fff;
-    font-size: 14px;
-    border: 1px solid rgba(255,255,255,0.16);
-}
-
-.footer-nav a:hover,
-.footer-nav a[aria-current="page"] {
-    background: rgba(255,255,255,0.18);
-}
-
-.footer-logo { flex: 0 0 auto; }
-.footer-logo img { width: 56px; height: auto; display: block; }
-
-/* ---------- Responsive ---------- */
 @media (max-width: 980px) {
-  .header-inner { grid-template-columns: 110px 1fr; grid-template-rows: auto auto; }
-  .main-nav { grid-column: 1 / -1; justify-self: start; }
-  .main-nav ul { justify-content: flex-start; }
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  .main-nav {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .main-nav ul {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    gap: 6px;
+  }
+
   .accent-bar { height: 12px; }
-  .teams-grid { grid-template-columns: 1fr; }
-  .players-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-inner { flex-direction: column; align-items: center; gap: 12px; }
-  .footer-nav ul { justify-content: center; }
+  .stats-leader { margin: 12px; padding: 12px; }
+  .leader-logo img { width: 80px; }
+  .leader-info h2 { font-size: 17px; }
+  .conference { margin: 12px; }
+  .conference h3 { font-size: 15px; }
+  th, td { padding: 7px 8px; font-size: 12px; }
+  .conference-dropdown { width: 100%; min-width: 0; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
 
 @media (max-width: 520px) {
-  .players-grid { grid-template-columns: 1fr; }
   .header-inner {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     text-align: center;
     gap: 8px;
     padding: 10px;
   }
+
   .logo { justify-self: center; }
-  .main-nav { justify-self: stretch; }
-  .main-nav ul {
-    justify-content: center;
-    overflow-x: auto;
-    padding-bottom: 4px;
-  }
+  .main-nav { margin-left: 0; width: 100%; }
+  .main-nav ul { justify-content: center; flex-wrap: wrap; }
   .title-area h1,
-  .page-title h1 { font-size: 22px; }
-  .footer-logo img { width: 48px; }
+  .page-title h1 { font-size: 20px; }
 }
