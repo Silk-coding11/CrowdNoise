@@ -43,59 +43,93 @@
 
   <!-- MAIN CONTENT -->
   <main id="main" class="container" role="main">
-    <!-- Hero / Introduction area -->
-    <section class="card hero" aria-labelledby="hero-heading">
-      <div class="hero-grid" style="display:grid; grid-template-columns: 1fr 320px; gap:18px; align-items:start;">
-        <!-- Intro text (left) -->
-        <div class="hero-intro">
-          <h2 id="hero-heading">Welcome to the Crowd</h2>
-          <p>
-            This is a basketball information / debate website about the NBA It features a stats page where you can find team stats as well as the league leaders in the big three
-            (points, rebounds, and assists). A standings page where you can see the live standings for each NBA
-            team based on division, conference, and league. A Rankings page where you can find our power rankings
-            for teams, our rankings of individual players, and the movement trends describing the rise and fall
-            in specific teams. Finally, a debate page where you as the user can post your own opinions on
-            basketball topics to start a conversation or view other people's opinions which you can reply to in
-            order to start debates. Our goal with this site is to provide information and form a community in the
-            NBA world where users can come to express themselves with other like-minded people.
-          </p>
+  <section class="card hero" aria-labelledby="hero-heading">
+    <div class="hero-grid" style="display:grid; grid-template-columns: minmax(0,1fr) 280px; gap:20px; align-items:center;">
+      <div class="hero-intro">
+        <h2 id="hero-heading">Welcome to Crowd Noise</h2>
+        <p>
+          Your home for NBA stats, standings, rankings, and debate.
+        </p>
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="StatsPage.html" class="btn">View Stats</a>
+          <a href="StandingsPage.html" class="btn">See Standings</a>
+          <a href="Debate.html" class="btn">Join the Debate</a>
+        </div>
+      </div>
+
+      <aside class="hero-aside" aria-label="Featured image">
+        <img src="images/NBAlogo.png" alt="NBA logo" style="max-width:100%; height:auto; display:block; margin:0 auto;" />
+      </aside>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="explore-heading">
+    <header class="section-header">
+      <h2 id="explore-heading">Explore the site</h2>
+    </header>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:14px;">
+      <a href="StatsPage.html" class="card" style="margin:0; text-align:center;">
+        <h3>Stats</h3>
+        <p>Team leaders and conference numbers</p>
+      </a>
+
+      <a href="StandingsPage.html" class="card" style="margin:0; text-align:center;">
+        <h3>Standings</h3>
+        <p>Conference standings at a glance</p>
+      </a>
+
+      <a href="Rankings.html" class="card" style="margin:0; text-align:center;">
+        <h3>Rankings</h3>
+        <p>Team and player rankings</p>
+      </a>
+
+      <a href="Debate.html" class="card" style="margin:0; text-align:center;">
+        <h3>Debate</h3>
+        <p>Post opinions and start conversations</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="highlights-heading">
+    <header class="section-header">
+      <h2 id="highlights-heading">You Can</h2>
+    </header>
+
+    <ul style="margin:0; padding-left:20px; line-height:1.7;">
+      <li>Check the latest team stats and league leaders.</li>
+      <li>Browse current standings by conference.</li>
+      <li>See power rankings and player rankings.</li>
+      <li>Share opinions in the debate section.</li>
+    </ul>
+  </section>
+</main>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-share" aria-label="Share this page">
+      <span class="share-label">Share</span>
+      <button class="share-btn" type="button" data-platform="twitter">X</button>
+      <button class="share-btn" type="button" data-platform="facebook">Facebook</button>
+      <button class="share-btn" type="button" data-platform="copy">Copy</button>
+    </div>
+
+    <nav class="footer-legal" aria-label="Footer legal links">
+      <a href="#">Terms of Use</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Contact Us</a>
+    </nav>
+
+    <div class="footer-right">
+      <div class="page-controls">
+            <a href="#" aria-label="Previous page">←</a>
+            <span>Page 1</span>
+            <a href="StatsPage.html" aria-label="Next page">→</a>
         </div>
 
-        <!-- Sidebar (right) with images -->
-        <aside class="hero-aside" aria-label="Complementary images">
-          <div class="image-card" style="margin-bottom:16px;">
-            <img src="images/SwishImage.jpg" alt="Basketball action" class="centered-logo-large" />
-          </div>
-
-          <div class="image-card">
-            <img src="images/NBAlogo.png" alt="NBA" style="display:block; max-width:150px; width:100%; height:auto;" />
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Footer band and footer nav appear visually lower — the styles.css footer will style this area -->
-  </main>
-
-  <!-- FOOTER (matches Rankings footer style) -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="Stats.html">Stats</a></li>
-          <li><a href="Standings.html">Standings</a></li>
-          <li><a href="Rankings.html">Rankings</a></li>
-          <li><a href="Debate.html">Debate</a></li>
-          <li><a href="#">Search</a></li>
-        </ul>
-      </nav>
-
-      <div class="footer-logo" aria-hidden="true">
-        <img src="images/CrowdNoiseLogo.png" alt="Crowd Noise" />
-      </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
 </body>
 </html>
