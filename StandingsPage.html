@@ -1,108 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Standings Page</title>
-    <link rel="stylesheet" href="SS.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Standings</title>
+  <link rel="stylesheet" href="SS.css">
 </head>
-<body>
+<body class="standings-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo" aria-hidden="true">
+        <img src="CrowdNoiseLogo.jpg" alt="Crowd Noise logo">
+      </div>
 
-    <header class="site-header">
-        <div class="header-inner">
-            <div class="logo" aria-hidden="true">
-                <img src="images/CrowdNoiseLogo.jpg" alt="Crowd Noise logo">
-            </div>
-            <div class="title-area">
-                <h1>Standings Page</h1>
-            </div>
-            <nav class="main-nav" aria-label="Main navigation">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="StatsPage.html">Stats</a></li>
-                    <li><a href="StandingsPage.html" class="active" aria-current="page">Standings</a></li>
-                    <li><a href="Rankings.html">Rankings</a></li>
-                    <li><a href="Debate.html">Debate</a></li>
-                    <li><a href="#">Search</a></li>
-                </ul>
-            </nav>
+      <div class="title-area">
+        <h1>Standings</h1>
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="StatsPage.html">Stats</a></li>
+          <li><a href="StandingsPage.html" class="active" aria-current="page">Standings</a></li>
+          <li><a href="Rankings.html">Rankings</a></li>
+          <li><a href="Debate.html">Debate</a></li>
+          <li><a href="#">Search</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="accent-bar"></div>
+
+  <main class="standings-main">
+    <section class="conference-section" aria-labelledby="conferenceTitle">
+      <div class="conference-header">
+        <h2 id="conferenceTitle">Eastern Conference</h2>
+        <label class="sr-only" for="conferenceSelect">Select conference</label>
+        <select class="conference-dropdown" id="conferenceSelect" aria-label="Select conference">
+          <option value="Eastern Conference">Eastern Conference</option>
+          <option value="Western Conference">Western Conference</option>
+        </select>
+      </div>
+
+      <div class="standings-container" id="standingsContainer" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-share" aria-label="Share this page">
+      <span class="share-label">Share</span>
+      <button class="share-btn" type="button" data-platform="twitter">X</button>
+      <button class="share-btn" type="button" data-platform="facebook">Facebook</button>
+      <button class="share-btn" type="button" data-platform="copy">Copy</button>
+    </div>
+
+    <nav class="footer-legal" aria-label="Footer legal links">
+      <a href="#">Terms of Use</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Contact Us</a>
+    </nav>
+
+    <div class="footer-right">
+        <div class="page-controls">
+            <a href="StatsPage.html" aria-label="Previous page">←</a>
+            <span>Page 3</span>
+            <a href="Rankings.html" aria-label="Next page">→</a>
         </div>
-    </header>
 
-    <div class="accent-bar" aria-hidden="true"></div>
+      <div class="footer-logo" aria-hidden="true">
+        <img src="images/CrowdNoiseLogo.png" alt="Crowd Noise logo">
+      </div>
+    </div>
+  </div>
+</footer>
 
-    <main>
-        <section class="conference-section" aria-labelledby="conference-heading">
-            <div class="conference-header">
-                <h2 id="conference-heading">Eastern Conference</h2>
-                <select class="conference-dropdown" aria-label="Select conference">
-                    <option>Eastern Conference</option>
-                    <option>Western Conference</option>
-                </select>
-            </div>
+  <script>
+    const conferenceSelect = document.getElementById('conferenceSelect');
+    const conferenceTitle = document.getElementById('conferenceTitle');
+    const standingsContainer = document.getElementById('standingsContainer');
 
-            <div class="standings-container" aria-label="Conference standings">
-                <div class="column">
-                    <div class="column-header">Rank</div>
-                    <div class="row">1. Detroit Pistons</div>
-                    <div class="row alt">2. Boston Celtics</div>
-                    <div class="row">3. New York Knicks</div>
-                    <div class="row alt">4. Cleveland Cavaliers</div>
-                    <div class="row">5. Toronto Raptors</div>
-                    <div class="row alt">6. Philadelphia 76ers</div>
-                    <div class="row">7. Orlando Magic</div>
-                    <div class="row alt">8. Miami Heat</div>
-                    <div class="row">9. Charlotte Hornets</div>
-                    <div class="row alt">10. Atlanta Hawks</div>
-                </div>
+    const conferenceData = {
+      'Eastern Conference': {
+        title: 'Eastern Conference',
+        teams: [
+          { rank: '1. Detroit Pistons', record: '40-13', division: '8-3' },
+          { rank: '2. Boston Celtics', record: '35-19', division: '7-5' },
+          { rank: '3. New York Knicks', record: '35-20', division: '10-3' },
+          { rank: '4. Cleveland Cavaliers', record: '34-21', division: '7-3' },
+          { rank: '5. Toronto Raptors', record: '32-23', division: '4-9' },
+          { rank: '6. Philadelphia 76ers', record: '30-24', division: '8-6' },
+          { rank: '7. Orlando Magic', record: '28-25', division: '6-5' },
+          { rank: '8. Miami Heat', record: '29-27', division: '4-5' },
+          { rank: '9. Charlotte Hornets', record: '26-29', division: '8-4' },
+          { rank: '10. Atlanta Hawks', record: '26-30', division: '5-5' }
+        ]
+      },
+      'Western Conference': {
+        title: 'Western Conference',
+        teams: [
+          { rank: '1. Oklahoma City Thunder', record: '42-14', division: '9-1' },
+          { rank: '2. Denver Nuggets', record: '35-20', division: '8-2' },
+          { rank: '3. Los Angeles Lakers', record: '32-21', division: '7-3' },
+          { rank: '4. Minnesota Timberwolves', record: '31-23', division: '6-4' },
+          { rank: '5. Houston Rockets', record: '30-24', division: '5-5' },
+          { rank: '6. Golden State Warriors', record: '29-25', division: '7-3' },
+          { rank: '7. Phoenix Suns', record: '28-26', division: '6-4' },
+          { rank: '8. Sacramento Kings', record: '27-28', division: '4-6' },
+          { rank: '9. Dallas Mavericks', record: '26-29', division: '5-5' },
+          { rank: '10. New Orleans Pelicans', record: '24-31', division: '3-7' }
+        ]
+      }
+    };
 
-                <div class="column">
-                    <div class="column-header">Record</div>
-                    <div class="row">40-13</div>
-                    <div class="row alt">35-19</div>
-                    <div class="row">35-20</div>
-                    <div class="row alt">34-21</div>
-                    <div class="row">32-23</div>
-                    <div class="row alt">30-24</div>
-                    <div class="row">28-25</div>
-                    <div class="row alt">29-27</div>
-                    <div class="row">26-29</div>
-                    <div class="row alt">26-30</div>
-                </div>
+    function renderConference(name) {
+      const data = conferenceData[name];
+      if (!data) return;
 
-                <div class="column">
-                    <div class="column-header">Division</div>
-                    <div class="row">8-3</div>
-                    <div class="row alt">7-5</div>
-                    <div class="row">10-3</div>
-                    <div class="row alt">7-3</div>
-                    <div class="row">4-9</div>
-                    <div class="row alt">8-6</div>
-                    <div class="row">6-5</div>
-                    <div class="row alt">4-5</div>
-                    <div class="row">8-4</div>
-                    <div class="row alt">5-5</div>
-                </div>
-            </div>
-        </section>
-    </main>
+      conferenceTitle.textContent = data.title;
 
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <nav class="footer-nav" aria-label="Footer navigation">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="StatsPage.html">Stats</a></li>
-                    <li><a href="StandingsPage.html" aria-current="page">Standings</a></li>
-                    <li><a href="RankingsPage.html">Rankings</a></li>
-                    <li><a href="Debate.html">Debate</a></li>
-                    <li><a href="#">Search</a></li>
-                </ul>
-            </nav>
-            <div class="footer-logo" aria-hidden="true">
-                <img src="CrowdNoiseLogo.jpg" alt="Crowd Noise logo">
-            </div>
-        </div>
-    </footer>
+      const columns = [
+        { key: 'rank', header: 'Rank' },
+        { key: 'record', header: 'Record' },
+        { key: 'division', header: 'Division' }
+      ];
+
+      standingsContainer.innerHTML = columns.map((column) => {
+        const rows = data.teams.map((team, index) => {
+          const altClass = index % 2 === 1 ? ' alt' : '';
+          return `<div class="row${altClass}">${team[column.key]}</div>`;
+        }).join('');
+
+        return `
+          <div class="column">
+            <div class="column-header">${column.header}</div>
+            ${rows}
+          </div>
+        `;
+      }).join('');
+    }
+
+    conferenceSelect.addEventListener('change', (event) => {
+      renderConference(event.target.value);
+    });
+
+    renderConference(conferenceSelect.value);
+  </script>
 </body>
 </html>
