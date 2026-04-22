@@ -90,6 +90,30 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* Rankings-specific layout */
+.view-switcher {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 18px 0;
+}
+
+.view-btn {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.view-btn.active {
+  background: #a40f0f;
+  color: #fff;
+  border-color: #a40f0f;
+}
+
+.is-hidden {
+  display: none;
+}
 .teams-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
